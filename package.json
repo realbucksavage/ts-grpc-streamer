@@ -1,0 +1,21 @@
+{
+  "name": "grpc-stream-ts",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "npm run clean && npm run gg && npx tsc ./src/index.ts --outDir ./build",
+    "clean": "rm -rf ./build && rm -rf ./proto/*_pb.*",
+    "gg": "./node_modules/.bin/grpc_tools_node_protoc --js_out=import_style=commonjs,binary:./ --grpc_out=./ --plugin=protoc-gen-grpc=./node_modules/.bin/grpc_tools_node_protoc_plugin -I ./ ./proto/*.proto && ./node_modules/.bin/grpc_tools_node_protoc --plugin=protoc-gen-ts=./node_modules/.bin/protoc-gen-ts --ts_out=./ -I ./ ./proto/*.proto",
+    "start": "npx ts-node ./src/index.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^4.5.4"
+  },
+  "dependencies": {
+    "grpc": "^1.24.11",
+    "grpc-tools": "^1.11.2",
+    "grpc_tools_node_protoc_ts": "^5.3.2"
+  }
+}

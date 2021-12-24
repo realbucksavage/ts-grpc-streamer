@@ -1,0 +1,4 @@
+proto/*_pb.*
+node_modules
+build
+data.zip

@@ -1,0 +1,15 @@
+syntax = "proto3";
+option go_package = "./streamergrpc";
+package streamer;
+
+message FileRequest {
+    string path = 1;
+}
+
+message Chunk {
+    bytes chunk = 1;
+}
+
+service FileStreamingService {
+    rpc read(FileRequest) returns (stream Chunk);
+}
