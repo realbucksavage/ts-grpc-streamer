@@ -1,8 +1,8 @@
-import { handleClientStreamingCall, sendUnaryData, ServerReadableStream, ServerWritableStream, status } from "grpc";
-import { FileStreamingServiceService, IFileStreamingServiceServer } from "../proto/streamer_grpc_pb";
-import { FileDescriptor, Chunk } from "../proto/streamer_pb";
 import * as fs from "fs";
+import { sendUnaryData, ServerReadableStream, ServerWritableStream, status } from "grpc";
 import * as stream from "stream";
+import { IFileStreamingServiceServer } from "../proto/streamer_grpc_pb";
+import { Chunk, FileDescriptor } from "../proto/streamer_pb";
 
 export class DefaultFileStreamingService implements IFileStreamingServiceServer {
 
