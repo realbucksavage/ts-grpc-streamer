@@ -2,7 +2,7 @@ syntax = "proto3";
 option go_package = "./streamergrpc";
 package streamer;
 
-message FileRequest {
+message FileDescriptor {
     string path = 1;
 }
 
@@ -11,5 +11,6 @@ message Chunk {
 }
 
 service FileStreamingService {
-    rpc read(FileRequest) returns (stream Chunk);
+    rpc read(FileDescriptor) returns (stream Chunk);
+    rpc write(stream Chunk) returns (FileDescriptor);
 }
